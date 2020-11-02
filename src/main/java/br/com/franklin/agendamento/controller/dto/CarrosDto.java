@@ -13,6 +13,16 @@ public class CarrosDto {
     private String marca;
     private String montadora;
 
+    public CarrosDto() {
+    }
+
+    public CarrosDto(Long id, String nome, String marca, String montadora) {
+        this.id = id;
+        this.nome = nome;
+        this.marca = marca;
+        this.montadora = montadora;
+    }
+
     public CarrosDto(Carros carros) {
         this.id = carros.getId();
         this.nome = carros.getNome();

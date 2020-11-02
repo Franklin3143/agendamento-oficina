@@ -3,6 +3,7 @@ package br.com.franklin.agendamento.service;
 import br.com.franklin.agendamento.controller.dto.CarrosDto;
 import br.com.franklin.agendamento.modelo.Carros;
 import br.com.franklin.agendamento.repository.AgendamentoRepository;
+import javassist.tools.rmi.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -40,5 +41,11 @@ public class CarrosService {
         } else {
             throw new RuntimeException("Não foi possível atualizar registro!!");
         }
+    }
+
+    public CarrosDto getCarroById(Long id) throws ObjectNotFoundException {
+        Optional<Carros> carros = agendamentoRepository.findById(id);
+
+        return carros.map(CarrosDto::create).orElseThrow(() -> new ObjectNotFoundException("Carro não encontrado"));
     }
 }

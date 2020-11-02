@@ -4,6 +4,7 @@ import br.com.franklin.agendamento.controller.dto.CarrosDto;
 import br.com.franklin.agendamento.modelo.Carros;
 import br.com.franklin.agendamento.repository.AgendamentoRepository;
 import br.com.franklin.agendamento.service.CarrosService;
+import javassist.tools.rmi.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +27,13 @@ public class CarrosController {
     public List<CarrosDto> listar () {
             List<Carros> carros = agendamentoRepository.findAll();
             return CarrosDto.converter(carros);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity listarCarroPorId(@PathVariable ("id") Long id) throws ObjectNotFoundException {
+        CarrosDto carros = carrosService.getCarroById(id);
+
+        return ResponseEntity.ok(carros);
     }
 
     @PostMapping
