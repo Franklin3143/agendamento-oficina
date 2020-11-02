@@ -1,6 +1,7 @@
 package br.com.franklin.agendamento.controller.dto;
 
 import br.com.franklin.agendamento.modelo.Carros;
+import org.modelmapper.ModelMapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,6 +22,11 @@ public class CarrosDto {
 
     public static List<CarrosDto> converter(List<Carros> carros) {
         return carros.stream().map(CarrosDto::new).collect(Collectors.toList());
+    }
+
+    public static CarrosDto create(Carros c) {
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(c, CarrosDto.class);
     }
 
     public Long getId() {
