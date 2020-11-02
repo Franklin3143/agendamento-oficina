@@ -39,6 +39,14 @@ public class CarrosController {
                 .buildAndExpand(id).toUri();
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity deletarCarro(@PathVariable("id") Long id) {
+        carrosService.delete(id);
+
+        return ResponseEntity.ok().build();
+    }
+
+
 
 
 }

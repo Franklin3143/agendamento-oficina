@@ -17,4 +17,8 @@ public class CarrosService {
         Assert.isNull(carros.getId(), "Não foi possível inserir registo de veículo!!");
         return CarrosDto.create(agendamentoRepository.save(carros));
     }
+
+    public void delete(Long id) {
+        agendamentoRepository.deleteById(id);
+    }
 }
