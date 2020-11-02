@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.util.Optional;
+
 @Service
 public class CarrosService {
 
@@ -20,5 +22,23 @@ public class CarrosService {
 
     public void delete(Long id) {
         agendamentoRepository.deleteById(id);
+    }
+
+    public CarrosDto update(Carros carros, Long id) {
+        Assert.notNull(id,"Não foi possível atualizar registro");
+
+        Optional<Carros> optional = agendamentoRepository.findById(id);
+        if (optional.isPresent()) {
+            Carros db = optional.get();
+            db.setNome(carros.getNome());
+            db.setMarca(carros.getMarca());
+            db.setMontadora(carros.getMontadora());
+
+            agendamentoRepository.save(db);
+
+            return CarrosDto.create(db);
+        } else {
+            throw new RuntimeException("Não foi possível atualizar registro!!");
+        }
     }
 }

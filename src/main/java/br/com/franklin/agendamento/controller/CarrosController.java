@@ -39,6 +39,15 @@ public class CarrosController {
                 .buildAndExpand(id).toUri();
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity atualizarCarro(@PathVariable("id") Long id, @RequestBody Carros carros) {
+        carros.setId(id);
+        CarrosDto c = carrosService.update(carros, id);
+        return c != null ?
+                ResponseEntity.ok(c) :
+                ResponseEntity.notFound().build();
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity deletarCarro(@PathVariable("id") Long id) {
         carrosService.delete(id);
