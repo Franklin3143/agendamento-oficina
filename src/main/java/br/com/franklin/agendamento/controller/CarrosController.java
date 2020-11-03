@@ -63,7 +63,6 @@ public class CarrosController {
     @DeleteMapping("/{id}")
     public ResponseEntity deletarCarro(@PathVariable("id") Long id) {
         carrosService.delete(id);
-
         return ResponseEntity.ok().build();
     }
 
