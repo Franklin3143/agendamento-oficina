@@ -43,9 +43,9 @@ public class CarrosService {
         }
     }
 
-    public CarrosDto getCarroById(Long id) throws ObjectNotFoundException {
-        Optional<Carros> carros = agendamentoRepository.findById(id);
-
-        return carros.map(CarrosDto::create).orElseThrow(() -> new ObjectNotFoundException("Carro não encontrado"));
-    }
+//    public CarrosDto getCarroById(Long id) throws ObjectNotFoundException {
+//        Optional<Carros> carros = agendamentoRepository.findById(id);
+//
+//        return carros.map(CarrosDto::create).orElseThrow(() -> new ObjectNotFoundException("Carro não encontrado"));
+//    }
 }
