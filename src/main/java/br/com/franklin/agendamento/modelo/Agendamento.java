@@ -10,7 +10,9 @@ public class Agendamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDateTime dataCriacao = LocalDateTime.now();
-    private String nomeCliente;
+
+    @ManyToOne
+    private Usuario cliente;
 
     @Enumerated
     private StatusAgendamento statusAgendamento = StatusAgendamento.ABERTO;
@@ -21,31 +23,16 @@ public class Agendamento {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public LocalDateTime getDataCriacao() {
         return dataCriacao;
-    }
-
-    public void setDataCriacao(LocalDateTime dataCriacao) {
-        this.dataCriacao = dataCriacao;
     }
 
     public StatusAgendamento getStatusAgendamento() {
         return statusAgendamento;
     }
 
-    public void setStatusAgendamento(StatusAgendamento statusAgendamento) {
-        this.statusAgendamento = statusAgendamento;
+    public Usuario getNomeCliente() {
+        return cliente;
     }
 
-    public String getNomeCliente() {
-        return nomeCliente;
-    }
-
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
-    }
 }
