@@ -3,6 +3,7 @@ package br.com.franklin.agendamento.controller.dto;
 import br.com.franklin.agendamento.modelo.Carros;
 import org.modelmapper.ModelMapper;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,6 +13,7 @@ public class CarrosDto {
     private String nome;
     private String marca;
     private String montadora;
+    private LocalDateTime dataCriacao;
 
     public CarrosDto() {
     }
@@ -28,6 +30,7 @@ public class CarrosDto {
         this.nome = carros.getNome();
         this.marca = carros.getMarca();
         this.montadora = carros.getMontadora();
+        this.dataCriacao = carros.getDataCriacao();
     }
 
     public static List<CarrosDto> converter(List<Carros> carros) {
@@ -53,5 +56,9 @@ public class CarrosDto {
 
     public String getMontadora() {
         return montadora;
+    }
+
+    public LocalDateTime getDataCriacao() {
+        return dataCriacao;
     }
 }
