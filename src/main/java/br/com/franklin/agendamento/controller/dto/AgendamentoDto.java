@@ -14,8 +14,11 @@ public class AgendamentoDto {
 
     private Long id;
     private LocalDateTime dataCriacao;
-    private Usuario nomeCliente;
+    private String nomeCliente;
     private StatusAgendamento statusAgendamento;
+
+    public AgendamentoDto() {
+    }
 
     public AgendamentoDto (Agendamento agendamento) {
         this.id = agendamento.getId();
@@ -49,11 +52,11 @@ public class AgendamentoDto {
         this.dataCriacao = dataCriacao;
     }
 
-    public Usuario getNomeCliente() {
+    public String getNomeCliente() {
         return nomeCliente;
     }
 
-    public void setNomeCliente(Usuario nomeCliente) {
+    public void setNomeCliente(String nomeCliente) {
         this.nomeCliente = nomeCliente;
     }
 

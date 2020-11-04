@@ -10,12 +10,11 @@ public class Agendamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDateTime dataCriacao = LocalDateTime.now();
+    private String nomeCliente;
 
     @Enumerated
     private StatusAgendamento statusAgendamento = StatusAgendamento.ABERTO;
 
-    @ManyToOne
-    private Usuario nomeCliente;
 
 
     public Long getId() {
@@ -42,11 +41,11 @@ public class Agendamento {
         this.statusAgendamento = statusAgendamento;
     }
 
-    public Usuario getNomeCliente() {
+    public String getNomeCliente() {
         return nomeCliente;
     }
 
-    public void setNomeCliente(Usuario nomeCliente) {
+    public void setNomeCliente(String nomeCliente) {
         this.nomeCliente = nomeCliente;
     }
 }

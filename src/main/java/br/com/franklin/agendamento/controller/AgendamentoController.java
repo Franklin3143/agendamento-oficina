@@ -1,6 +1,5 @@
 package br.com.franklin.agendamento.controller;
 
-import antlr.ASTNULLType;
 import br.com.franklin.agendamento.controller.dto.AgendamentoDto;
 import br.com.franklin.agendamento.modelo.Agendamento;
 import br.com.franklin.agendamento.repository.AgendamentoRepository;
@@ -10,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.transaction.Transactional;
 import java.net.URI;
 import java.util.List;
 
@@ -31,8 +29,7 @@ public class AgendamentoController {
     }
 
     @PostMapping
-    @Transactional
-    public ResponseEntity <AgendamentoDto> criarAgendamento(@RequestBody Agendamento agendamento) {
+    public ResponseEntity  criarAgendamento(@RequestBody Agendamento agendamento) {
         AgendamentoDto ag = agendamentoService.insert(agendamento);
         URI location = getURI(ag.getId());
         return ResponseEntity.created(location).build();
