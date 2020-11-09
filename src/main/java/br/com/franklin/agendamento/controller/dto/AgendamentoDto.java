@@ -7,14 +7,17 @@ import br.com.franklin.agendamento.modelo.Usuario;
 import org.modelmapper.ModelMapper;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class AgendamentoDto {
 
     private Long id;
+    private String nomeCliente;
+    private String modeloCarro;
+    private String dataAgendamento;
     private LocalDateTime dataCriacao;
-    private Usuario cliente;
     private StatusAgendamento statusAgendamento;
 
     public AgendamentoDto() {
@@ -22,9 +25,12 @@ public class AgendamentoDto {
 
     public AgendamentoDto (Agendamento agendamento) {
         this.id = agendamento.getId();
+        this.nomeCliente = agendamento.getNomeCliente();
+        this.modeloCarro = agendamento.getModeloCarro();
+        this.dataAgendamento = agendamento.getDataAgendamento();
         this.dataCriacao = agendamento.getDataCriacao();
-        this.cliente = agendamento.getNomeCliente();
         this.statusAgendamento = agendamento.getStatusAgendamento();
+
     }
 
     public static AgendamentoDto create(Agendamento a) {
@@ -44,20 +50,36 @@ public class AgendamentoDto {
         this.id = id;
     }
 
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+
+    public String getModeloCarro() {
+        return modeloCarro;
+    }
+
+    public void setModeloCarro(String modeloCarro) {
+        this.modeloCarro = modeloCarro;
+    }
+
+    public String getDataAgendamento() {
+        return dataAgendamento;
+    }
+
+    public void setDataAgendamento(String dataAgendamento) {
+        this.dataAgendamento = dataAgendamento;
+    }
+
     public LocalDateTime getDataCriacao() {
         return dataCriacao;
     }
 
     public void setDataCriacao(LocalDateTime dataCriacao) {
         this.dataCriacao = dataCriacao;
-    }
-
-    public Usuario getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Usuario cliente) {
-        this.cliente = cliente;
     }
 
     public StatusAgendamento getStatusAgendamento() {

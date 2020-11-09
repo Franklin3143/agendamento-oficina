@@ -39,4 +39,13 @@ public class AgendamentoController {
         return ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(id).toUri();
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity alteraAgendamento(@PathVariable("id") Long id, @RequestBody Agendamento agendamento) {
+        agendamento.setId(id);
+        AgendamentoDto a = agendamentoService.update(agendamento, id);
+        return a != null ?
+                ResponseEntity.ok(a) :
+                ResponseEntity.notFound().build();
+    }
 }

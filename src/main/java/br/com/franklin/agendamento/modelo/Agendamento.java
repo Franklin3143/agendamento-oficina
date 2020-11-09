@@ -9,30 +9,58 @@ public class Agendamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String nomeCliente;
+    private String modeloCarro;
+    private String dataAgendamento;
     private LocalDateTime dataCriacao = LocalDateTime.now();
-
-    @ManyToOne
-    private Usuario cliente;
-
     @Enumerated
     private StatusAgendamento statusAgendamento = StatusAgendamento.ABERTO;
 
-
-
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+
+    public String getModeloCarro() {
+        return modeloCarro;
+    }
+
+    public void setModeloCarro(String modeloCarro) {
+        this.modeloCarro = modeloCarro;
+    }
+
+    public String getDataAgendamento() {
+        return dataAgendamento;
+    }
+
+    public void setDataAgendamento(String dataAgendamento) {
+        this.dataAgendamento = dataAgendamento;
     }
 
     public LocalDateTime getDataCriacao() {
         return dataCriacao;
     }
 
+    public void setDataCriacao(LocalDateTime dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
+
     public StatusAgendamento getStatusAgendamento() {
         return statusAgendamento;
     }
 
-    public Usuario getNomeCliente() {
-        return cliente;
+    public void setStatusAgendamento(StatusAgendamento statusAgendamento) {
+        this.statusAgendamento = statusAgendamento;
     }
-
 }
