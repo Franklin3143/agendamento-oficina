@@ -48,4 +48,10 @@ public class AgendamentoController {
                 ResponseEntity.ok(a) :
                 ResponseEntity.notFound().build();
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deletarAgendamento(@PathVariable("id") Long id) {
+        agendamentoService.delete(id);
+        return ResponseEntity.ok().build();
+    }
 }

@@ -38,4 +38,8 @@ public class AgendamentoService {
             throw new RuntimeException("Não foi possível atualizar registro!!");
         }
     }
+
+    public void delete(Long id) {
+        agendamentoRepository.deleteById(id);
+    }
 }
