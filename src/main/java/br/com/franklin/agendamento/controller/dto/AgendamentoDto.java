@@ -18,6 +18,8 @@ public class AgendamentoDto {
     private String modeloCarro;
     private String dataAgendamento;
     private LocalDateTime dataCriacao;
+    private String tipoDeServico;
+    private String observacao;
     private StatusAgendamento statusAgendamento;
 
     public AgendamentoDto() {
@@ -29,6 +31,8 @@ public class AgendamentoDto {
         this.modeloCarro = agendamento.getModeloCarro();
         this.dataAgendamento = agendamento.getDataAgendamento();
         this.dataCriacao = agendamento.getDataCriacao();
+        this.tipoDeServico = agendamento.getTipoDeServico();
+        this.observacao = agendamento.getObservacao();
         this.statusAgendamento = agendamento.getStatusAgendamento();
 
     }
@@ -80,6 +84,22 @@ public class AgendamentoDto {
 
     public void setDataCriacao(LocalDateTime dataCriacao) {
         this.dataCriacao = dataCriacao;
+    }
+
+    public String getTipoDeServico() {
+        return tipoDeServico;
+    }
+
+    public void setTipoDeServico(String tipoDeServico) {
+        this.tipoDeServico = tipoDeServico;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
     }
 
     public StatusAgendamento getStatusAgendamento() {

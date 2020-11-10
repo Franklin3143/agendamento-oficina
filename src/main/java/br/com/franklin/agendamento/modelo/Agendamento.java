@@ -13,6 +13,8 @@ public class Agendamento {
     private String modeloCarro;
     private String dataAgendamento;
     private LocalDateTime dataCriacao = LocalDateTime.now();
+    private String tipoDeServico;
+    private String observacao;
     @Enumerated
     private StatusAgendamento statusAgendamento = StatusAgendamento.ABERTO;
 
@@ -54,6 +56,22 @@ public class Agendamento {
 
     public void setDataCriacao(LocalDateTime dataCriacao) {
         this.dataCriacao = dataCriacao;
+    }
+
+    public String getTipoDeServico() {
+        return tipoDeServico;
+    }
+
+    public void setTipoDeServico(String tipoDeServico) {
+        this.tipoDeServico = tipoDeServico;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
     }
 
     public StatusAgendamento getStatusAgendamento() {
