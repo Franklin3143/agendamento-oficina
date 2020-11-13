@@ -15,8 +15,12 @@ public class Agendamento {
     private LocalDateTime dataCriacao = LocalDateTime.now();
     private String tipoDeServico;
     private String observacao;
+
     @Enumerated
-    private StatusAgendamento statusAgendamento = StatusAgendamento.ABERTO;
+    private StatusAgendamento statusAgendamento;
+
+    @Enumerated
+    private StatusTipoServico statusTipoServico;
 
     public Long getId() {
         return id;
@@ -80,5 +84,13 @@ public class Agendamento {
 
     public void setStatusAgendamento(StatusAgendamento statusAgendamento) {
         this.statusAgendamento = statusAgendamento;
+    }
+
+    public StatusTipoServico getStatusTipoServico() {
+        return statusTipoServico;
+    }
+
+    public void setStatusTipoServico(StatusTipoServico statusTipoServico) {
+        this.statusTipoServico = statusTipoServico;
     }
 }
